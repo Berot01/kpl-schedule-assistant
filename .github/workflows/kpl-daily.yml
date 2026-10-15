@@ -1,0 +1,98 @@
+name: 更新并发布 KPL 赛程
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'scripts/**'
+      - 'requirements.txt'
+      - '.github/workflows/kpl-daily.yml'
+  schedule:
+    # UTC 01:17 = 北京时间 09:17。定时任务可能延迟。
+    - cron: '17 1 * * *'
+  workflow_dispatch:
+    inputs:
+      notify:
+        description: '这次是否尝试发送今日微信提醒（需已设置 Token）？'
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: kpl-pages
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 抓取最新赛程
+        id: fetch
+        if: github.event_name != 'push'
+        continue-on-error: true
+        run: python scripts/update_schedule.py
+
+      - name: 发送今日比赛微信提醒
+        id: notify
+        if: >-
+          github.event_name != 'push' && steps.fetch.outcome == 'success' &&
+          (github.event_name == 'schedule' || inputs.notify == true)
+        continue-on-error: true
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+        run: python scripts/notify.py
+
+      - name: 保存成功抓取的数据和推送去重记录
+        if: github.event_name != 'push'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/data/schedule.json data/notification_state.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: refresh KPL schedule [skip ci]'
+            git push
+          else
+            echo '赛程及推送状态无变化'
+          fi
+
+      - name: 设置 Pages
+        uses: actions/configure-pages@v5
+
+      - name: 上传网页
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+
+      - name: 发布到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: 抓取失败提示
+        if: steps.fetch.outcome == 'failure'
+        run: echo '::warning::自动抓取失败；已保留上次有效赛程，微信通知被跳过。'
+
+      - name: 通知失败提示
+        if: steps.notify.outcome == 'failure'
+        run: echo '::warning::PushPlus 推送失败；请检查密钥和账号状态。'
