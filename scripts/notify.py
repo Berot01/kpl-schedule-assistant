@@ -51,18 +51,52 @@ def main() -> int:
         return 0
     today = now.date().isoformat()
     matches.sort(key=lambda m: m["time"])
-    lines = [f"{today} 今日有 {len(matches)} 场 KPL 比赛（北京时间）：", ""]
+    cards = []
     for item in matches:
-        lines.append(f"{item['time']}  {item['team_a']} VS {item['team_b']}")
-        lines.append(f"{item['event']}")
-        lines.append(item["url"])
-        lines.append("")
-    lines.append("赛程可能临时调整，以赛事官方信息为准。")
+        cards.append(f"""
+        <div style="background:#ffffff;border:1px solid #eaeaea;border-radius:16px;padding:16px;margin:14px 0;">
+            <div style="font-size:13px;color:#666;">{item['event']}</div>
+            <div style="font-size:30px;font-weight:700;color:#ff6a3d;margin:10px 0 6px;">
+                {item['time']}
+            </div>
+            <div style="font-size:20px;font-weight:700;color:#222;line-height:1.6;">
+                {item['team_a']}
+                <span style="font-size:14px;color:#999;padding:0 6px;">VS</span>
+                {item['team_b']}
+            </div>
+            <div style="margin-top:14px;">
+                <a href="{item['url']}"
+                   style="display:inline-block;background:#1677ff;color:#fff;text-decoration:none;padding:8px 14px;border-radius:10px;font-size:14px;">
+                   查看详情
+                </a>
+            </div>
+        </div>
+        """)
+
+    html_content = f"""
+    <div style="background:#f5f7fb;padding:20px;font-family:Arial,'Microsoft YaHei',sans-serif;">
+        <div style="max-width:720px;margin:0 auto;background:#0f2747;color:#fff;border-radius:22px;padding:24px;">
+            <div style="font-size:28px;font-weight:800;">KPL 今日赛程</div>
+            <div style="font-size:14px;color:#d9e6ff;margin-top:8px;">
+                日期：{today}（北京时间） · 共 {len(matches)} 场
+            </div>
+
+            <div style="margin-top:20px;">
+                {''.join(cards)}
+            </div>
+
+            <div style="font-size:13px;color:#c7d3ea;margin-top:18px;line-height:1.7;">
+                温馨提示：赛程可能临时调整，请以赛事官方信息为准。
+            </div>
+        </div>
+    </div>
+    """
+
     payload = {
         "token": token,
         "title": f"KPL 今日赛程 · {today} · {len(matches)} 场",
-        "content": "\n".join(lines),
-        "template": "txt",
+        "content": html_content,
+        "template": "html",
         "channel": "wechat",
     }
     try:
