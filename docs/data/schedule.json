@@ -3,136 +3,45 @@
   "source": "wanplus_schedule_and_match_details",
   "source_url": "https://wanplus.cn/kog/schedule",
   "timezone": "Asia/Shanghai",
-  "updated_at": "2026-10-18T14:00:17+08:00",
+  "updated_at": "2026-10-19T14:17:17+08:00",
   "coverage_dates": [
-    "2026-10-12",
-    "2026-10-13",
-    "2026-10-14",
-    "2026-10-15",
-    "2026-10-16",
-    "2026-10-17",
-    "2026-10-18"
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24",
+    "2026-10-25"
   ],
   "matches": [
     {
-      "id": "94586",
-      "date": "2026-10-12",
-      "time": "17:00",
-      "team_a": "KSG",
-      "team_b": "南通Hero久竞",
-      "event": "2026 KPL年度总决赛",
-      "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94586.html"
-    },
-    {
-      "id": "94587",
-      "date": "2026-10-12",
-      "time": "20:00",
-      "team_a": "北京WB",
+      "id": "94635",
+      "date": "2026-10-20",
+      "time": "18:00",
+      "team_a": "重庆狼队",
       "team_b": "深圳DYG",
       "event": "2026 KPL年度总决赛",
       "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94587.html"
+      "url": "https://wanplus.cn/schedule/94635.html"
     },
     {
-      "id": "94588",
-      "date": "2026-10-14",
-      "time": "17:00",
-      "team_a": "北京JDG",
-      "team_b": "济南RW侠",
-      "event": "2026 KPL年度总决赛",
-      "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94588.html"
-    },
-    {
-      "id": "94589",
-      "date": "2026-10-14",
-      "time": "20:00",
-      "team_a": "重庆狼队",
-      "team_b": "杭州LGD.NBW",
-      "event": "2026 KPL年度总决赛",
-      "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94589.html"
-    },
-    {
-      "id": "94590",
-      "date": "2026-10-15",
-      "time": "17:00",
+      "id": "94636",
+      "date": "2026-10-21",
+      "time": "18:00",
       "team_a": "成都AG超玩会",
-      "team_b": "上海EDG.M",
-      "event": "2026 KPL年度总决赛",
-      "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94590.html"
-    },
-    {
-      "id": "94591",
-      "date": "2026-10-15",
-      "time": "20:00",
-      "team_a": "广州TTG",
       "team_b": "长沙TES.A",
       "event": "2026 KPL年度总决赛",
       "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94591.html"
+      "url": "https://wanplus.cn/schedule/94636.html"
     },
     {
-      "id": "94592",
-      "date": "2026-10-16",
-      "time": "17:00",
-      "team_a": "北京WB",
+      "id": "94637",
+      "date": "2026-10-22",
+      "time": "18:00",
+      "team_a": "杭州LGD.NBW",
       "team_b": "南通Hero久竞",
       "event": "2026 KPL年度总决赛",
       "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94592.html"
-    },
-    {
-      "id": "94593",
-      "date": "2026-10-16",
-      "time": "20:00",
-      "team_a": "重庆狼队",
-      "team_b": "深圳DYG",
-      "event": "2026 KPL年度总决赛",
-      "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94593.html"
-    },
-    {
-      "id": "94594",
-      "date": "2026-10-17",
-      "time": "17:00",
-      "team_a": "KSG",
-      "team_b": "杭州LGD.NBW",
-      "event": "2026 KPL年度总决赛",
-      "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94594.html"
-    },
-    {
-      "id": "94595",
-      "date": "2026-10-17",
-      "time": "20:00",
-      "team_a": "北京WB",
-      "team_b": "济南RW侠",
-      "event": "2026 KPL年度总决赛",
-      "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94595.html"
-    },
-    {
-      "id": "94596",
-      "date": "2026-10-18",
-      "time": "17:00",
-      "team_a": "KSG",
-      "team_b": "上海EDG.M",
-      "event": "2026 KPL年度总决赛",
-      "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94596.html"
-    },
-    {
-      "id": "94597",
-      "date": "2026-10-18",
-      "time": "20:00",
-      "team_a": "北京JDG",
-      "team_b": "长沙TES.A",
-      "event": "2026 KPL年度总决赛",
-      "status": "scheduled",
-      "url": "https://wanplus.cn/schedule/94597.html"
+      "url": "https://wanplus.cn/schedule/94637.html"
     }
   ]
 }
