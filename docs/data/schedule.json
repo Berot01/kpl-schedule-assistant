@@ -3,7 +3,7 @@
   "source": "wanplus_schedule_and_match_details",
   "source_url": "https://wanplus.cn/kog/schedule",
   "timezone": "Asia/Shanghai",
-  "updated_at": "2026-11-07T15:16:35+08:00",
+  "updated_at": "2026-11-08T15:27:24+08:00",
   "coverage_dates": [
     "2026-11-02",
     "2026-11-03",
@@ -73,6 +73,16 @@
       "event": "2026 KPL年度总决赛",
       "status": "scheduled",
       "url": "https://wanplus.cn/schedule/94811.html"
+    },
+    {
+      "id": "94812",
+      "date": "2026-11-08",
+      "time": "18:00",
+      "team_a": "北京WB",
+      "team_b": "广州TTG",
+      "event": "2026 KPL年度总决赛",
+      "status": "scheduled",
+      "url": "https://wanplus.cn/schedule/94812.html"
     }
   ]
 }
