@@ -3,13 +3,13 @@
   "source": "wanplus_schedule_and_match_details",
   "source_url": "https://wanplus.cn/kog/schedule",
   "timezone": "Asia/Shanghai",
-  "updated_at": "2026-11-20T16:38:28+08:00",
+  "updated_at": "2026-11-21T16:19:57+08:00",
   "coverage_dates": [
     "2026-11-16",
     "2026-11-17",
     "2026-11-18",
     "2026-11-19",
-    "2026-11-21",
+    "2026-11-20",
     "2026-11-22"
   ],
   "matches": []
